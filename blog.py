@@ -1,7 +1,7 @@
 from post import Post
 
 class Blog:
-    def __init__(self, title: object, author: object) -> object:
+    def __init__(self):
         self.title = title
         self.author = author
         self.posts = []
