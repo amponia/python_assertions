@@ -21,21 +21,17 @@ class AppTest(TestCase):
     def test_print_blogs(self):
         blog = Blog("Blog Title", "Blog Author")
         app.blogs = {'Test': blog}
-        with patch('builtins.print') as mocked_print:  # cokolwiek zostanie wydrukowane, będzie teraz
-            # jako "mocked.print" (zastepujemy fukcje "print" z app.py funkcja mocked_print)
-            # . Nie możemy dac samej funkcji "print", musimy dodac modul,
-            # z ktorego pochodzi. W tym wypadku jest to builtins, wiec pelna nazwa = builtins.print
+        with patch('builtins.print') as mocked_print:  
             app.print_blogs()
             mocked_print.assert_called_with('-Blog Title by Blog Author (0 posts)')
 
     def test_ask_create_blogs(self):
         with patch('builtins.input') as mocked_input:
             mocked_input.side_effect = (
-            "Blog Title", "Blog Author")  # bez tego side effect test nie przejdzie (bedzie none)
+            "Blog Title", "Blog Author")  
             app.ask_create_blog()
             self.assertIsNotNone(
-                app.blogs.get("Blog Title"))  # we assert that when we get a blog with a title "Blog Title"
-            # from app.blogs it is not none
+                app.blogs.get("Blog Title"))  
 
     def test_ask_read_blog(self):
         blog = Blog("Blog Title", "Blog Author")
