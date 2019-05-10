@@ -26,16 +26,16 @@ def menu():
             ask_create_post()
         selection = 'Q'
 
-def print_blogs(): #print the available blogs. aby to zrobic, trzeba zrobic iteracje po slowniku
-    for key, blog in blogs.items(): # podaje listę keys i values:[(blog_name, Blog), (blog_name, Blog)]
+def print_blogs(): 
+    for key, blog in blogs.items(): 
         print ('-{}'.format(blog))
 
 
 def ask_create_blog() :
-    title = input ('Enter your blog title: ') #1st side effect
-    author = input('Enter your name: ') # 2nd side effect
+    title = input ('Enter your blog title: ') 
+    author = input('Enter your name: ') 
 
-    blogs[title] = Blog (title, author) # dictionary "blogs" and the key "title". If the key doesn't exist, it is created.
+    blogs[title] = Blog (title, author) 
 
 
 def ask_read_blog():
